@@ -1,9 +1,6 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-</script>
-
 <template>
-  <header>
+  <Navbar />
+  <!-- <header>
     <img
       alt="Vue logo"
       class="logo"
@@ -21,6 +18,16 @@ import { RouterLink, RouterView } from "vue-router";
       </nav>
     </div>
   </header>
-
+-->
   <RouterView />
 </template>
+
+<script lang="ts">
+import { RouterView } from "vue-router";
+import Navbar from "@/components/Navbar/Navbar.vue";
+
+export default {
+  name: "App",
+  components: { Navbar, RouterView },
+};
+</script>
