@@ -17,11 +17,10 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { RouterLink } from "vue-router";
 
-export default {
-  name: "NavbarComponent",
-  components: { RouterLink },
-};
+defineProps({
+  RouterLink,
+});
 </script>
