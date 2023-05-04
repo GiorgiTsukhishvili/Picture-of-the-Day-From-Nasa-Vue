@@ -16,11 +16,3 @@
     </RouterLink>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { RouterLink } from "vue-router";
-
-defineProps({
-  RouterLink,
-});
-</script>
