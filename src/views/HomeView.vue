@@ -5,8 +5,9 @@
 <script setup lang="ts">
 import { fetchNasaImages } from "@/services";
 import { onMounted, ref } from "vue";
+import type { NasaImagesTypes } from "@/types";
 
-const nasaImages = ref<string>([]);
+const nasaImages = ref<NasaImagesTypes[]>([]);
 
 onMounted(() => {
   const images = async () => {
