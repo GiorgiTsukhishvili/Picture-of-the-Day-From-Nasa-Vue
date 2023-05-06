@@ -6,4 +6,5 @@ export type NasaImagesTypes = {
   service_version: string;
   title: string;
   url: string;
+  copyright?: string;
 };

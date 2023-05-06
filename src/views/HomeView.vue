@@ -1,6 +1,14 @@
 <template>
   <div class="flex flex-col items-center mt-16 gap-10">
-    <NasaImage v-for="(image, i) in nasaImages" :key="i" />
+    <NasaImage
+      v-for="(image, i) in nasaImages"
+      :key="i"
+      :imageUrl="image.url"
+      :explanation="image.explanation"
+      :title="image.title"
+      :date="image.date"
+      :copyright="image.copyright"
+    />
   </div>
 </template>
 
