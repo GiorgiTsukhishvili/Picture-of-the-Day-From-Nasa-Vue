@@ -39,7 +39,7 @@ const currentImages = computed(() => store.state.homeImages.images);
 
 const images = async () => {
   const data = await fetchNasaImages(20);
-  store.commit("addImagesInStore", data.data);
+  store.dispatch("addHomeImages", data.data);
   isLoading.value = false;
 };
 
