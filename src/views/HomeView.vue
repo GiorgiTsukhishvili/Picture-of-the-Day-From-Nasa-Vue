@@ -18,7 +18,7 @@
     <RouterLink
       :to="'/'"
       class="hover:scale-105 duration-200 max-w-[330px] w-full shadow-3xl p-3"
-      v-for="(image, i) in nasaImages"
+      v-for="(image, i) in currentImages"
     >
       <img
         :key="i"
@@ -35,23 +35,28 @@
 
 <script setup lang="ts">
 import { fetchNasaImages } from "@/services";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import type { NasaImagesTypes } from "@/types";
-import { NasaImage } from "@/components";
 import Rocket from "@/assets/images/svgs/rocket.svg";
+import { useStore } from "vuex";
 
-const nasaImages = ref<NasaImagesTypes[]>([]);
 const isLoading = ref<boolean>(true);
 
-onMounted(() => {
-  const images = async () => {
-    const data = await fetchNasaImages(20);
-    nasaImages.value = data.data;
-    isLoading.value = false;
-  };
+const store = useStore();
 
-  images();
+const currentImages = computed(() => store.state.homeImages.images);
+
+const images = async () => {
+  const data = await fetchNasaImages(20);
+  store.commit("addImagesInStore", data.data);
+  isLoading.value = false;
+};
+
+onMounted(() => {
+  if (currentImages.value.length === 0) {
+    images();
+  } else {
+    isLoading.value = false;
+  }
 });
 </script>
-
-<style scoped></style>
