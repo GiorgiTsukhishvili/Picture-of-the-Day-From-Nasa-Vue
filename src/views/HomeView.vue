@@ -6,19 +6,10 @@
     class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
   />
   <div v-else class="flex flex-wrap justify-center px-10 my-16 gap-10">
-    <!-- <NasaImage
-      v-for="(image, i) in nasaImages"
-      :key="i"
-      :imageUrl="image.url"
-      :explanation="image.explanation"
-      :title="image.title"
-      :date="image.date"
-      :copyright="image.copyright"
-    /> -->
     <RouterLink
-      :to="'/'"
-      class="hover:scale-105 duration-200 max-w-[330px] w-full shadow-3xl p-3"
       v-for="(image, i) in currentImages"
+      :to="{ name: 'nasa_image', params: { title: image.title } }"
+      class="hover:scale-105 duration-200 max-w-[330px] w-full shadow-3xl p-3"
     >
       <img
         :key="i"
