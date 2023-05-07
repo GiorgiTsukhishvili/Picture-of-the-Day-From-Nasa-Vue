@@ -7,3 +7,10 @@ export const addHomeImages = (
 ) => {
   commit("addImagesInStore", payload);
 };
+
+export const loadMoreHomeImages = (
+  { commit }: { commit: Commit },
+  payload: NasaImagesTypes[]
+) => {
+  commit("loadMoreImagesInStore", payload);
+};

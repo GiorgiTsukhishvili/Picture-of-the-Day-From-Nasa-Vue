@@ -6,6 +6,12 @@
     class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
   />
   <div v-else class="flex flex-wrap justify-center px-10 my-16 gap-10">
+    <button
+      @click="loadMoreImages"
+      class="text-white bg-green-500 border-none absolute top-16 right-10 px-4 py-2 rounded-md"
+    >
+      Load More
+    </button>
     <RouterLink
       v-for="(image, i) in currentImages"
       :to="{ name: 'nasa_image', params: { title: image.title } }"
@@ -27,7 +33,6 @@
 <script setup lang="ts">
 import { fetchNasaImages } from "@/services";
 import { computed, onMounted, ref } from "vue";
-import type { NasaImagesTypes } from "@/types";
 import Rocket from "@/assets/images/svgs/rocket.svg";
 import { useStore } from "vuex";
 
@@ -37,15 +42,20 @@ const store = useStore();
 
 const currentImages = computed(() => store.state.homeImages.images);
 
-const images = async () => {
-  const data = await fetchNasaImages(20);
-  store.dispatch("addHomeImages", data.data);
+const images = async (dispatch: string, amount: number) => {
+  const data = await fetchNasaImages(amount);
+  store.dispatch(dispatch, data.data);
   isLoading.value = false;
+};
+
+const loadMoreImages = async () => {
+  isLoading.value = true;
+  images("loadMoreHomeImages", 10);
 };
 
 onMounted(() => {
   if (currentImages.value.length === 0) {
-    images();
+    images("addHomeImages", 20);
   } else {
     isLoading.value = false;
   }
