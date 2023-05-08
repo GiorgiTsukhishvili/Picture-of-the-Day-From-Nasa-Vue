@@ -15,7 +15,6 @@ import type { NasaImagesTypes } from "@/types";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { NasaImage } from "@/components";
-import { computed } from "vue";
 
 const {
   params: { title },
@@ -27,7 +26,7 @@ const {
   },
 } = useStore();
 
-const imageInfo = computed(
-  () => images.filter((image: NasaImagesTypes) => image.title === title)[0]
+const imageInfo = images.find(
+  (image: NasaImagesTypes) => image.title === title
 );
 </script>

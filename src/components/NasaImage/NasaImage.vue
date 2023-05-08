@@ -1,13 +1,9 @@
 <template>
-  <div class="rounded-md max-w-[40rem] shadow-md hover:shadow-xl">
+  <div class="rounded-md mt-20 px-10 flex items-center flex-col">
     <a :href="imageUrl" target="_blank">
-      <img
-        :src="imageUrl"
-        alt="nasa-picture"
-        class="rounded-t-md w-full h-96"
-      />
+      <img :src="imageUrl" alt="nasa-picture" class="rounded-md w-full h-96" />
     </a>
-    <div class="px-4 py-6">
+    <div class="py-6">
       <h1 class="font-bold text-xl pb-6">{{ title }}</h1>
       <h1 v-if="copyright" class="pb-6 text-lg">Author: {{ copyright }}</h1>
       <p class="pb-6">{{ explanation }}</p>
