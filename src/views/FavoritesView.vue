@@ -1,5 +1,5 @@
 <template>
-  <div v-if="favorites.length === 0">
+  <div v-if="images.length === 0">
     <h1
       class="text-2xl font-semibold absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
     >
@@ -8,7 +8,7 @@
   </div>
   <div v-else class="flex flex-wrap justify-center px-10 my-16 gap-10">
     <RouterLink
-      v-for="(image, i) in favorites"
+      v-for="(image, i) in images"
       :to="{ name: 'nasa_image', params: { title: image.title } }"
       class="hover:scale-105 duration-200 max-w-[330px] w-full shadow-3xl p-3"
     >
@@ -29,6 +29,8 @@
 import { useStore } from "vuex";
 
 const {
-  state: { favorites },
+  state: {
+    favorites: { images },
+  },
 } = useStore();
 </script>

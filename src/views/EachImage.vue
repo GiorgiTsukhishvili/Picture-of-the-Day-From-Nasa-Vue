@@ -1,7 +1,7 @@
 <template>
   <div v-if="imageInfo !== undefined">
     <NasaImage
-      :imageUrl="imageInfo.url"
+      :url="imageInfo.url"
       :explanation="imageInfo.explanation"
       :title="imageInfo.title"
       :date="imageInfo.date"

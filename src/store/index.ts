@@ -7,6 +7,10 @@ import * as favoritesActions from "./modules/favorites/actions";
 const homeImages = {
   images: [],
 };
+
+const favoriteImages = {
+  images: [],
+};
 const store = createStore({
   modules: {
     homeImages: {
@@ -15,7 +19,7 @@ const store = createStore({
       actions: homeImagesActions,
     },
     favorites: {
-      state: () => [],
+      state: () => favoriteImages,
       mutations: favoritesMutations,
       actions: favoritesActions,
     },
