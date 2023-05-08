@@ -1,24 +1,22 @@
 import type { NasaImagesTypes } from "@/types";
 
 export const loadFavorites = (
-  state: { favoriteImages: NasaImagesTypes[] },
+  state: NasaImagesTypes[],
   images: NasaImagesTypes[]
 ) => {
-  state.favoriteImages = images;
+  state = images;
 };
 
 export const addInFavorites = (
-  state: { favoriteImages: NasaImagesTypes[] },
+  state: NasaImagesTypes[],
   image: NasaImagesTypes
 ) => {
-  state.favoriteImages.unshift(image);
+  state.unshift(image);
 };
 
 export const removeFromFavorites = (
-  state: { favoriteImages: NasaImagesTypes[] },
+  state: NasaImagesTypes[],
   title: string
 ) => {
-  state.favoriteImages = state.favoriteImages.filter(
-    (el) => el.title !== title
-  );
+  state = state.filter((el) => el.title !== title);
 };
