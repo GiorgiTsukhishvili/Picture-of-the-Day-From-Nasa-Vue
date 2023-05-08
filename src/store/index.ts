@@ -1,8 +1,9 @@
-import { createStore } from "vuex";
+import { Store, createStore } from "vuex";
 import * as homeImagesMutations from "./modules/homeImages/mutations";
 import * as homeImagesActions from "./modules/homeImages/actions";
 import * as favoritesMutations from "./modules/favorites/mutations";
 import * as favoritesActions from "./modules/favorites/actions";
+import type { StoreType } from "@/types";
 
 const homeImages = {
   images: [],
@@ -11,7 +12,7 @@ const homeImages = {
 const favoriteImages = {
   images: [],
 };
-const store = createStore({
+const store: Store<StoreType> = createStore({
   modules: {
     homeImages: {
       state: () => homeImages,
@@ -29,7 +30,7 @@ const store = createStore({
 store.subscribe(() => {
   localStorage.setItem(
     "favorites",
-    JSON.stringify((store.state as any).favorites.images)
+    JSON.stringify(store.state.favorites.images)
   );
 });
 
