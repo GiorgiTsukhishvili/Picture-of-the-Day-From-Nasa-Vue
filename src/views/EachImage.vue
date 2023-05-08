@@ -21,12 +21,10 @@ const {
 } = useRoute();
 
 const {
-  state: {
-    homeImages: { images },
-  },
+  state: { homeImages, favorites },
 } = useStore();
 
-const imageInfo = images.find(
+const imageInfo = [...homeImages.images, ...favorites.images].find(
   (image: NasaImagesTypes) => image.title === title
 );
 </script>

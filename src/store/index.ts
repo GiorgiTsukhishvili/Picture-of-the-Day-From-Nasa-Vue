@@ -26,4 +26,11 @@ const store = createStore({
   },
 });
 
+store.subscribe(() => {
+  localStorage.setItem(
+    "favorites",
+    JSON.stringify((store.state as any).favorites.images)
+  );
+});
+
 export default store;
