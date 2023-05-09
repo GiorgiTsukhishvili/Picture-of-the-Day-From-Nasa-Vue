@@ -8,17 +8,16 @@
       <h1 v-if="copyright" class="pb-6 text-lg">Author: {{ copyright }}</h1>
       <p class="pb-6">{{ explanation }}</p>
       <h2 class="font-bold">{{ date }}</h2>
-      <button
-        class="text-white bg-green-500 border-none absolute top-16 right-10 px-4 py-2 rounded-md"
-        @click="existsOrNot.func"
-      >
-        {{ existsOrNot.bool ? "Remove from favorites" : "Add to favorites" }}
-      </button>
+      <GreenButton
+        :text="existsOrNot.bool ? 'Remove from favorites' : 'Add to favorites'"
+        @call-function="existsOrNot.func"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { GreenButton } from "@/components";
 import type { NasaImagesTypes } from "@/types";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
