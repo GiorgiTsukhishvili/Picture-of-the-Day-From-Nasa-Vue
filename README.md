@@ -87,7 +87,7 @@ yarn
 
 ### Deployment
 
-In order to deploy project on the server you must build existing Movie Epic Quotes from terminal:
+In order to deploy project on the server you must build existing Picture Of The Day Nasa from terminal:
 
 ```sh
 npm run build
