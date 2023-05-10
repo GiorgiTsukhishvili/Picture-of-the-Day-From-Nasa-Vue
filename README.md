@@ -1,46 +1,94 @@
-# nas
+<div style="display:flex; align-items: center">
+  <h1 style="position:relative; top: -6px" >Picture Of The Day Nasa</h1>
+</div>
 
-This template should help get you started developing with Vue 3 in Vite.
+---
 
-## Recommended IDE Setup
+Picture Of The Day Nasa is app where users can see daily pictures from the Nasa and add them to favorite pictures to favorites section in order to save them.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+#
 
-## Type Support for `.vue` Imports in TS
+### Table of Contents
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- [Prerequisites](#prerequisites)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Development](#development)
+- [Project Structure](#project-structure)
+- [Deployment](#deployment)
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+#
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### Prerequisites
 
-## Customize configuration
+- <img src="readme/assets/node.png" width="25" style="position: relative; top: 8px" /> _Node JS @14.X and up_
+- <img src="readme/assets/npm.png" width="35" style="position: relative; top: 4px" /> _npm @6 and up_
+- <img src="readme/assets/typescript.png" width="20" style="position: relative; top: 6px" /> *TypeScript@4.9.3.X and up*
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+#
 
-## Project Setup
+### Tech Stack
+
+- <img src="readme/assets/vue.png" height="18" style="position: relative; top: 4px" /> [Vue @3.2.47](https://vuejs.org/) - front-end framework.
+- <img src="readme/assets/axios.svg" height="18" style="position: relative; top: 4px; width: 18px" /> [axios @1.2.2](https://axios-http.com/) - Promise based HTTP client for the browser and node.js.
+- <img src="readme/assets/tailwind.png" height="18" style="position: relative; top: 4px; width: 18px" /> [Tailwind @3.2.4](https://tailwindcss.com/) - Tailwind CSS is an open source CSS framework.
+
+#
+
+### Getting Started
+
+1\. First of all you need to clone Movie Epic Quotes repository from github:
 
 ```sh
-npm install
+git clone https://github.com/GiorgiTsukhishvili/Picture-of-the-Day-From-Nasa-Vue.git
 ```
 
-### Compile and Hot-Reload for Development
+2\. Next step requires install all the dependencies.
 
 ```sh
-npm run dev
+npm ci
 ```
 
-### Type-Check, Compile and Minify for Production
+or
+
+```sh
+yarn
+```
+
+#
+
+### Project Structure
+
+```bash
+├─── readme   # readme assets
+├─── public      # public folder
+├─── src    # src folder
+│   ├─── assets
+│   ├─── components
+│   ├─── router
+│   ├─── store
+│   ├─── types
+│   ├─── 404.tsx
+│   ├─── main.ts
+│   ├─── App.vue
+- .eslintrc.cjs
+- .prettierrc.js
+- package.json
+- tsconfig.json
+- tailwind.config.cjs
+- vite.config.ts
+- .gitignore
+- README.md
+- postcss.config.cjs
+
+```
+
+#
+
+### Deployment
+
+In order to deploy project on the server you must build existing Movie Epic Quotes from terminal:
 
 ```sh
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
